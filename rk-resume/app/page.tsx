@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { MapPin } from "lucide-react"
+import { Pills } from "@/components/Pill"
 
 export default function AboutPage() {
   return (
@@ -41,32 +42,22 @@ export default function AboutPage() {
           {/* Skills Section */}
           <div className="text-center">
             <h3 className="text-xl text-foreground-bright font-bold mb-6">Skills</h3>
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium">
-                JavaScript
-              </span>
-              <span className="px-4 py-2 bg-primary text-white rounded-full text-sm font-medium">
-                TypeScript
-              </span>
-              <span className="px-4 py-2 bg-primary text-secondary rounded-full text-sm font-medium">
-                React
-              </span>
-              <span className="px-4 py-2 bg-primary text-secondary rounded-full text-sm font-medium">
-                Next.js
-              </span>
-              <span className="px-4 py-2 bg-primary text-secondary rounded-full text-sm font-medium">
-                Node.js
-              </span>
-              <span className="px-4 py-2 bg-primary text-secondary rounded-full text-sm font-medium">
-                HTML
-              </span>
-              <span className="px-4 py-2 bg-primary text-secondary rounded-full text-sm font-medium">
-                CSS
-              </span>
-              <span className="px-4 py-2 bg-primary text-secondary rounded-full text-sm font-medium">
-                Git
-              </span>
-            </div>
+            <Pills labels={[
+              "JavaScript",
+              "TypeScript",
+              "React",
+              "Next.js",
+              "Node.js",
+              "HTML",
+              "CSS",
+              "Tailwind",
+              "GraphQL",
+              "REST APIs",
+              "SQL",
+              "PHP",
+              "Drupal",
+              "Git"
+            ]} />
           </div>
         </main>
       </div>
