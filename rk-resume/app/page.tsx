@@ -1,20 +1,12 @@
 import Image from "next/image"
-import Link from "next/link"
-import { ChevronLeft, MapPin, Home, User, Briefcase, Mail } from "lucide-react"
+import { MapPin } from "lucide-react"
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Mobile-first container */}
       <div className="mx-auto min-h-screen">
-        {/* Header */}
-        <header className="flex items-center justify-between p-4 border-b border-gray-100">
-          <button className="p-2 -ml-2 text-foreground-bright">
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-          <h1 className="text-lg font-medium text-gray-900">About Me</h1>
-          <div className="w-10"></div> {/* Spacer for centering */}
-        </header>
+
 
         {/* Main Content */}
         <main className="p-6 pb-24">
@@ -77,28 +69,6 @@ export default function AboutPage() {
             </div>
           </div>
         </main>
-
-        {/* Bottom Navigation */}
-        <nav className="fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full max-w-md bg-white border-t border-gray-200">
-          <div className="flex items-center justify-around py-3">
-            <Link href="/" className="flex flex-col items-center p-2">
-              <Home className="h-6 w-6 text-gray-400" />
-              <span className="text-xs text-gray-400 mt-1">Home</span>
-            </Link>
-            <Link href="/experience" className="flex flex-col items-center p-2">
-              <Briefcase className="h-6 w-6 text-gray-400" />
-              <span className="text-xs text-gray-400 mt-1">Experience</span>
-            </Link>
-            <Link href="/about" className="flex flex-col items-center p-2">
-              <User className="h-6 w-6 text-blue-500" />
-              <span className="text-xs text-blue-500 mt-1">Education</span>
-            </Link>
-            <Link href="/contact" className="flex flex-col items-center p-2">
-              <Mail className="h-6 w-6 text-gray-400" />
-              <span className="text-xs text-gray-400 mt-1">Contact</span>
-            </Link>
-          </div>
-        </nav>
       </div>
     </div>
   )
