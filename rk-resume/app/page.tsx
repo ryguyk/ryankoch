@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { MapPin } from "lucide-react"
-import { Pills } from "@/components/Pill"
+import Pills from "@/components/Pills"
 
 export default function AboutPage() {
   return (
@@ -39,7 +39,7 @@ export default function AboutPage() {
           {/* Skills Section */}
           <div className="text-center">
             <h3 className="text-xl text-foreground-bright font-bold mb-6">Skills</h3>
-            <Pills labels={[
+            <Pills className="justify-center" labels={[
               "JavaScript",
               "TypeScript",
               "React",

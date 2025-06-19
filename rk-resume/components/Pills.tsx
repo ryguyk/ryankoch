@@ -1,4 +1,4 @@
-export default function Pill({ 
+function Pill({ 
   label, 
   variant = "primary" 
 }: 
@@ -19,16 +19,18 @@ export default function Pill({
   );
 }
 
-export function Pills({ 
-  labels, 
-  variant = "primary" 
+export default function Pills({ 
+  labels,
+  className = "",
+  variant = "secondary" 
 }: 
 { 
   labels: string[], 
+  className?: string,
   variant?: "primary" | "secondary" 
 }) {
   return (
-    <div className="flex flex-wrap justify-center gap-3">
+    <div className={`flex flex-wrap gap-3 ${className}`}>
       {labels.map((label) => (
         <Pill key={label} label={label} variant={variant} />
       ))}
