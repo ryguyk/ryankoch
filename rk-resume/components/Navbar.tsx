@@ -16,7 +16,7 @@ function NavLink({ href, icon, onClick, children }: { href: string; icon: React.
   return (
     <Link
       href={href}
-      className="flex items-center gap-2 text-sm font-medium hover:text-blue-500 transition"
+      className="flex items-center gap-2 text-sm font-medium hover:underline transition"
       onClick={handleClick}
     >
       {icon}
@@ -65,7 +65,7 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="bg-white border-b border-gray-100 text-foreground-bright">
+    <header className="text-white bg-primary">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo / Title */}
@@ -90,7 +90,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <nav className="md:hidden pb-4 fixed inset-0 z-50 bg-white">
+          <nav className="md:hidden pb-4 fixed inset-0 z-50 bg-primary text-white">
             {/* Close button inside menu */}
             <button
               onClick={() => setOpen(false)}

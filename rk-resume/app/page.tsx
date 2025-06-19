@@ -5,10 +5,7 @@ import { Pills } from "@/components/Pill"
 export default function AboutPage() {
   return (
     <div className="min-h-screen">
-      {/* Mobile-first container */}
-      <div className="mx-auto min-h-screen">
-
-
+      <div className="mx-auto max-h-500 min-h-screen">
         {/* Main Content */}
         <main className="p-6 pb-24">
           {/* Profile Section */}
