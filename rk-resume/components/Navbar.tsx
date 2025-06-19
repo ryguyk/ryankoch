@@ -7,8 +7,9 @@ import { usePathname } from "next/navigation";
 
 function NavLink({ href, icon, onClick, children }: { href: string; icon: React.ReactNode; onClick?: () => void; children: React.ReactNode }) {
   const pathName = usePathname();
+  const currentPage = href === pathName;
   const handleClick = () => {
-    if (href === pathName) {
+    if (currentPage) {
       onClick?.();
     }
   }
@@ -16,7 +17,7 @@ function NavLink({ href, icon, onClick, children }: { href: string; icon: React.
   return (
     <Link
       href={href}
-      className="flex items-center gap-2 text-sm font-medium hover:underline transition"
+      className={`flex items-center gap-2 text-sm font-medium hover:underline transition ${currentPage ? 'underline' : ''}`}
       onClick={handleClick}
     >
       {icon}
@@ -69,7 +70,7 @@ export default function Navbar() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo / Title */}
-          <h1 className="text-lg font-semibold">{title}</h1>
+          <h1 className="text-2xl font-semibold">{title}</h1>
 
           {/* Desktop Links */}
           <nav className="hidden md:flex space-x-6 items-center">
