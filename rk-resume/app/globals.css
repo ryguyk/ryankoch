@@ -1,26 +1,56 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Default (optional) */
+  --light-1: hsl(0 0% 100%);
+  --light-2: hsl(0 0% 65%);
+  --dark-1: hsl(0 0% 15%);
+  --dark-2: hsl(0 0% 5%);
+  --blue-primary: hsl(217 90% 40%);
+  --blue-secondary: hsl(217 90% 60%);
+  --purple-primary: hsl(275 95% 45%);
+  --purple-secondary: hsl(275 95% 75%);
+
+  --foreground: var(--dark-1);
+  --foreground-2: var(--dark-2);
+  --background: var(--light-1);
+}
+
+:root.light {
+  --background: var(--light-1);
+  --foreground: var(--dark-2);
+  --foreground-bright: var(--dark-1);
+}
+:root.dark {
+  --background: var(--dark-1);
+  --foreground: var(--light-2);
+  --foreground-bright: var(--light-1);
+}
+
+/* Blue */
+:root.blue {
+  --primary: var(--blue-primary);
+  --secondary: var(--blue-secondary);
+}
+
+/* Purple */
+:root.purple {
+  --primary: var(--purple-primary);
+  --secondary: var(--purple-secondary);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-bright: var(--foreground-bright);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
 }
