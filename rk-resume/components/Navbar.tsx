@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, X, Home, Laptop, GraduationCap, Mail } from "lucide-react";
 import { usePathname } from "next/navigation";
 
-function NavLink({ href, icon, onClick, children }: { href: string; icon: React.ReactNode; onClick: () => void; children: React.ReactNode }) {
+function NavLink({ href, icon, onClick, children }: { href: string; icon: React.ReactNode; onClick?: () => void; children: React.ReactNode }) {
   const pathName = usePathname();
   const handleClick = () => {
     if (href === pathName) {
