@@ -74,7 +74,7 @@ export default function Navbar() {
           <h1 className="text-2xl font-semibold">{title}</h1>
 
           {/* Desktop Links */}
-          <nav className="hidden md:flex space-x-6 items-center">
+          <nav className="hidden lg:flex space-x-6 items-center">
             <NavLinks />
           </nav>
 
@@ -82,7 +82,7 @@ export default function Navbar() {
           {!open && (
             <button
               onClick={() => setOpen(true)}
-              className="md:hidden p-2 cursor-pointer"
+              className="lg:hidden p-2 cursor-pointer"
               aria-label="Open menu"
             >
               <Menu className="h-6 w-6" />
@@ -92,7 +92,7 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {open && (
-          <nav className="md:hidden pb-4 fixed inset-0 z-50 bg-primary text-white">
+          <nav className="lg:hidden pb-4 fixed inset-0 z-50 bg-primary text-white">
             {/* Close button inside menu */}
             <button
               onClick={() => setOpen(false)}
