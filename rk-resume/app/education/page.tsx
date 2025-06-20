@@ -10,7 +10,7 @@ export default function EducationPage() {
         {/* Main Content */}
         <main className="p-6 pb-24">
           {/* University Section */}
-          <div className="border-b-1 text-foreground p-6 pb-10 mb-6">
+          <div className="text-foreground p-6 pb-10 mb-6">
             <IconHeading Icon={GraduationCap} title="St. Cloud State University" SubtitleIcon={MapPin} subtitle="St. Cloud, MN" />
             <div className="space-y-3">
               <div>
@@ -35,25 +35,6 @@ export default function EducationPage() {
 
               <div className="pt-2 mt-8 text-foreground-bright">
                 <span className="text-lg font-medium">GPA: 4.0</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Activities & Awards Section */}
-          <div className="text-foreground p-6 mb-6">
-            <IconHeading Icon={Trophy} title="Activities & Awards" subtitle="Intercollegiate Athletics" />
-            <div className="space-y-3">
-              <div>
-                <p className="text-md mt-4 mb-2 font-medium text-foreground-bright">5x First-Team Academic All-American</p>
-                <div className="flex flex-wrap gap-2">
-                  <Pills labels={["Track & Field (3)", "Football (2)"]} />
-                </div>
-                 
-                <p className="text-md mt-4 mb-2 font-medium text-foreground-bright">NCAA Division II National Student-Athlete of the Year</p>
-                <Pills labels={["2006"]} />
-
-                <p className="text-md mt-4 mb-2 font-medium text-foreground-bright">Athletic Hall of Fame</p>
-                <Pills labels={["Inducted 2025"]} />
               </div>
             </div>
           </div>

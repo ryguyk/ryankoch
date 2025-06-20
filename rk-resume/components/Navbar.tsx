@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { Menu, X, Home, Laptop, GraduationCap, Mail } from "lucide-react";
+import { Menu, X, Home, Laptop, GraduationCap, Mail, Trophy } from "lucide-react";
 import { usePathname } from "next/navigation";
 
 function NavLink({ href, icon, onClick, children }: { href: string; icon: React.ReactNode; onClick?: () => void; children: React.ReactNode }) {
@@ -32,6 +32,7 @@ function NavLinks({ onLinkClick }: { onLinkClick?: () => void }) {
       <NavLink href="/" icon={<Home className="h-5 w-5" />} onClick={onLinkClick}>About Me</NavLink>
       <NavLink href="/experience" icon={<Laptop className="h-5 w-5" />} onClick={onLinkClick}>Experience</NavLink>
       <NavLink href="/education" icon={<GraduationCap className="h-5 w-5" />} onClick={onLinkClick}>Education</NavLink>
+      <NavLink href="/awards" icon={<Trophy className="h-5 w-5" />} onClick={onLinkClick}>Activities & Awards</NavLink>
       <NavLink href="/contact" icon={<Mail className="h-5 w-5" />} onClick={onLinkClick}>Contact</NavLink>
     </>
   )
