@@ -13,7 +13,7 @@ export default function ContactPage() {
         <main className="p-6 pb-24">
           {/* Contact Info */}
           <div className="border-b-1 text-foreground p-6 pb-10 mb-6">
-            <h2 className="text-xl font-bold text-gray-900 mb-6">Get in Touch</h2>
+            <h2 className="text-xl font-bold text-foreground-bright mb-6">Get in Touch</h2>
             <div>
               <IconHeading Icon={Mail} title="Email" subtitle="ryan.koch.0213@gmail.com" />
               <IconHeading Icon={Phone} title="Phone" subtitle="608-213-1570" />
@@ -23,7 +23,7 @@ export default function ContactPage() {
 
           {/* Social Links */}
           <div className="text-foreground p-6 pb-10 mb-6">
-            <h3 className="text-lg font-bold text-gray-900 mb-4">Connect</h3>
+            <h3 className="text-lg font-bold text-foreground-bright mb-4">Connect</h3>
             <div className="flex gap-4">
               <Link
                 href="https://github.com/ryguyk"

@@ -30,9 +30,10 @@ export default function AboutPage() {
           {/* About Text */}
           <div className="mb-12">
             <p className="leading-relaxed text-center">
-              I'm a passionate software engineer with over 15 years of experience building web applications. I have a
-              background in full-stack development and a strong understanding of modern web technologies. I'm always
-              looking for new challenges and opportunities to learn and grow as a developer.
+              I'm a passionate software engineer with over 15 years of experience building web applications, from full-stack systems to finely tuned user interfaces. I thrive on solving complex problems and take pride in writing thoughtful, maintainable code that scales.
+            </p>
+            <p className="leading-relaxed text-center mt-10">
+              Some of my proudest accomplishments are outside of tech. I've coached at the Olympic Games, I've built a meaningful friendship in a foreign language, and I've had the tremendous honor of officiating four weddings. These experiences, alongside my professional work, reflect the depth of my character and the richness I pursue in every part of life.
             </p>
           </div>
 
