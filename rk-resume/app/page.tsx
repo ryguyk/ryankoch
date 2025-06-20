@@ -19,9 +19,9 @@ export default function AboutPage() {
                 className="w-full h-full object-cover"
               />
             </div>
-            <h2 className="text-2xl text-foreground-bright font-bold mb-2">Ryan Koch</h2>
-            <p className="mb-3">Senior Software Engineer</p>
-            <div className="flex items-center justify-center text-sm">
+            <h2 className="text-4xl text-foreground-bright font-bold mb-2">Ryan Koch</h2>
+            <p className="text-xl mb-3">Senior Software Engineer</p>
+            <div className="flex items-center justify-center text-lg">
               <MapPin className="h-4 w-4 mr-1" />
               <span>Twin Cities, MN</span>
             </div>
