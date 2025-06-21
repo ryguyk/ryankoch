@@ -7,10 +7,16 @@
   --light-3: hsl(0 0% 75%);
   --dark-1: hsl(0 0% 5%);
   --dark-2: hsl(0 0% 15%);
+
   --blue-primary: hsl(217 90% 40%);
   --blue-secondary: hsl(217 90% 60%);
   --purple-primary: hsl(275 95% 45%);
   --purple-secondary: hsl(275 95% 75%);
+  --red-primary: hsl(0 80% 40%);
+  --red-secondary: hsl(0 80% 55%);
+
+  --white: var(--light-1);
+  --black: var(--dark-1);
 
   --foreground: var(--dark-1);
   --foreground-bright: var(--dark-2);
@@ -45,6 +51,12 @@
   --secondary: var(--purple-secondary);
 }
 
+/* Red */
+:root.red {
+  --primary: var(--red-primary);
+  --secondary: var(--red-secondary);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-background-lighter: var(--background-lighter);
@@ -56,8 +68,11 @@
   --font-mono: var(--font-geist-mono);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+@layer base {
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+    @apply transition-colors duration-300 ease-in-out;
+  }
 }

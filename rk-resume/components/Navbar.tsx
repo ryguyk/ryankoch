@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { Menu, X, Home, Laptop, GraduationCap, Mail, Trophy } from "lucide-react";
 import { usePathname } from "next/navigation";
+import ThemeSelector from "@/components/ThemeSelector";
 
 function NavLink({ href, icon, onClick, children }: { href: string; icon: React.ReactNode; onClick?: () => void; children: React.ReactNode }) {
   const pathName = usePathname();
@@ -67,48 +68,63 @@ export default function Navbar() {
   }, [pathname]);
 
   return (
-    <header className="text-white bg-primary">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo / Title */}
-          <h1 className="text-2xl font-semibold">{title}</h1>
+    <header>
+      <div className="text-white bg-primary transition-colors duration-300">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            {/* Logo / Title */}
+            <h1 className="text-2xl font-semibold">{title}</h1>
 
-          {/* Desktop Links */}
-          <nav className="hidden lg:flex space-x-6 items-center">
-            <NavLinks />
-          </nav>
+            {/* Desktop Links */}
+            <nav className="hidden lg:flex space-x-6 items-center">
+              <NavLinks />
+            </nav>
 
-          {/* Mobile hamburger (only when menu is closed) */}
-          {!open && (
-            <button
-              onClick={() => setOpen(true)}
-              className="lg:hidden p-2 cursor-pointer"
-              aria-label="Open menu"
-            >
-              <Menu className="h-6 w-6" />
-            </button>
+            {/* Mobile hamburger (only when menu is closed) */}
+            {!open && (
+              <button
+                onClick={() => setOpen(true)}
+                className="lg:hidden p-2 cursor-pointer"
+                aria-label="Open menu"
+              >
+                <Menu className="h-6 w-6" />
+              </button>
+            )}
+          </div>
+
+          {/* Mobile menu */}
+          {open && (
+            <nav className="lg:hidden pb-4 fixed inset-0 z-50 bg-primary text-white">
+              {/* Close button inside menu */}
+              <button
+                onClick={() => setOpen(false)}
+                className="absolute top-4 right-4 cursor-pointer"
+                aria-label="Close menu"
+              >
+                <X className="h-6 w-6" />
+              </button>
+              
+              <div className="h-full w-full flex flex-col items-center justify-center">
+                <div className="flex flex-col items-center text-lg space-y-10">
+                  <NavLinks onLinkClick={handleClose}/>
+                </div>
+              </div>
+            </nav>
           )}
         </div>
+      </div>
 
-        {/* Mobile menu */}
-        {open && (
-          <nav className="lg:hidden pb-4 fixed inset-0 z-50 bg-primary text-white">
-            {/* Close button inside menu */}
-            <button
-              onClick={() => setOpen(false)}
-              className="absolute top-4 right-4 cursor-pointer"
-              aria-label="Close menu"
-            >
-              <X className="h-6 w-6" />
-            </button>
-            
-            <div className="h-full w-full flex flex-col items-center justify-center">
-              <div className="flex flex-col items-center text-lg space-y-10">
-                <NavLinks onLinkClick={handleClose}/>
-              </div>
-            </div>
-          </nav>
-        )}
+      {/* Theme selector */}
+      <div className="bg-transparent">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-2">
+          <div
+            className="flex justify-end"
+            role="group"
+            aria-label="Theme selector"
+          >
+            <ThemeSelector />
+          </div>
+        </div>
       </div>
     </header>
   );
