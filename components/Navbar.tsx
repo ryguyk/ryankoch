@@ -94,7 +94,7 @@ export default function Navbar() {
 
           {/* Mobile menu */}
           {open && (
-            <nav className="lg:hidden pb-4 fixed inset-0 z-50 bg-primary text-white">
+            <nav className="lg:hidden pb-4 fixed inset-0 z-50 bg-primary text-white overflow-hidden">
               {/* Close button inside menu */}
               <button
                 onClick={() => setOpen(false)}
