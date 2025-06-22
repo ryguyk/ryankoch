@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function ThemeSelector() {
   const [theme, setTheme] = useState('light-blue');
@@ -14,6 +14,7 @@ export default function ThemeSelector() {
 
   const setNewTheme = (themeName: string) => {
     setTheme(themeName);
+    document.cookie = `theme=${themeName}; path=/; max-age=31536000`;
     document.documentElement.className = themeName.replace('-', ' ');
   }
 

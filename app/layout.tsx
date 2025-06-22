@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { cookies } from 'next/headers';
 import Navbar from "@/components/Navbar";
 import "./globals.css";
 
@@ -18,13 +19,17 @@ export const metadata: Metadata = {
   description: "A resume and portfolio for Ryan Koch, a full-stack software engineer with over 15 years of experience.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookieStore = await cookies();
+  const cookieTheme = cookieStore.get('theme')?.value ?? 'light-blue';
+  const themeName = cookieTheme.replace('-', ' ');
+
   return (
-    <html lang="en" className="light blue">
+    <html lang="en" className={themeName}>   
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
