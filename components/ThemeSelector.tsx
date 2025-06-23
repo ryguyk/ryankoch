@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 export default function ThemeSelector() {
-  const [theme, setTheme] = useState('light-blue');
+  const [theme, setTheme] = useState<string | undefined>();
   
   const themes = [
     { name: 'light-blue', gradientStart: 'white', gradientEnd: 'blue' },
@@ -17,6 +17,22 @@ export default function ThemeSelector() {
     document.cookie = `theme=${themeName}; path=/; max-age=31536000`;
     document.documentElement.className = themeName.replace('-', ' ');
   }
+
+  const getCookie = (name: string): string | undefined => {
+    const cookies = document.cookie.split('; ');
+    for (const cookie of cookies) {
+      const [key, value] = cookie.split('=');
+      if (key === name) return decodeURIComponent(value);
+    }
+    return undefined;
+  }
+
+  useEffect(() => {
+    const existingTheme = getCookie('theme') ?? 'light-blue';
+    if (existingTheme) {
+      setTheme(existingTheme);
+    }
+  }, []);
 
   return (
     <div className="flex gap-3">
