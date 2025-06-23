@@ -47,7 +47,9 @@ function getPageTitle(pathname: string): string {
       return "Experience";
     case "/education":
       return "Education";
-    case "/contact":
+    case "/awards":
+      return "Activities & Awards";
+      case "/contact":
       return "Contact";
     default:
       return "Resume";
