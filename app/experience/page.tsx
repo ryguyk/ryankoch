@@ -37,7 +37,7 @@ const experiences = [
       },
       {
         title: "Department of Veterans Affairs - Sitewide Team",
-        position: "Senior Full-Stack Engineer",
+        position: "Senior Engineer/FE Tech Lead",
         period: "October 2021 - April 2023",
         techStack: ["React", "Node.js", "Liquid", "PHP", "Drupal 9", "SQL", "GraphQL"],
         description: "Front-end engineering lead on a full-stack team responsible for the Department of Veterans Affairs' public-facing website, which serves millions of Veterans and their families.",
