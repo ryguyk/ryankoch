@@ -7,9 +7,8 @@ import { usePathname } from 'next/navigation';
 export default function Analytics() {
   const pathname = usePathname();
 
-  const _window = window as any;
-
   useEffect(() => {
+    const _window = window as any;
     if (_window.gtag) {
       _window.gtag('config', 'G-YEWZDHJJM4', {
         page_path: pathname,
