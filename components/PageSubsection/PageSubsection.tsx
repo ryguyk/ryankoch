@@ -31,7 +31,7 @@ export default function IconHeading({
       </div>
       <div>
         {description?.map((paragraph, index) => (
-          <p key={index} className="text-sm mt-8 italic text-foreground-bright">{paragraph}</p>
+          <p key={index} className="text-sm mt-8 mb-4 italic text-foreground-bright">{paragraph}</p>
         ))}  
         
         {bullets.length > 0 && (
