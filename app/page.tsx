@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { MapPin } from "lucide-react"
-import Pills from "@/components/Pills"
+import Pills from "@/components/Pills/Pills"
 
 export default function AboutPage() {
   return (
@@ -23,7 +23,7 @@ export default function AboutPage() {
             <p className="text-xl mb-3">Senior Software Engineer</p>
             <div className="flex items-center justify-center text-lg">
               <MapPin className="h-4 w-4 mr-1" />
-              <span>Twin Cities, MN</span>
+              <span>Minneapolis, MN</span>
             </div>
 
             {/* About Text */}

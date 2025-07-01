@@ -1,13 +1,14 @@
 import React from 'react';
-import { MapPin, Laptop } from "lucide-react";
-import HeadingWithSubheading from './HeadingWithSubheading';
+import { MapPin, Laptop, Medal } from "lucide-react";
+import IconHeading from './IconHeading';
 
 export default {
-  title: 'HeadingWithSubheading',
-  component: HeadingWithSubheading,
+  title: 'IconHeading',
+  component: IconHeading,
 };
 
 const heading1 = 'Main Heading';
+const MainIcon = Medal;
 const headingLevel = 'h2';
 const subheading1 = 'This is a subheading';
 const Icon1 = MapPin;
@@ -15,7 +16,8 @@ const subheading2 = 'This is another subheading';
 const Icon2 = Laptop;
 
 export const Default = () => 
-  <HeadingWithSubheading 
+  <IconHeading
+    icon={MainIcon}
     heading={heading1} 
     headingLevel={headingLevel}
     subheading1={subheading1}
@@ -25,13 +27,15 @@ export const Default = () =>
   />;
 
 export const NoSubheading = () => 
-  <HeadingWithSubheading 
+  <IconHeading
+    icon={MainIcon}
     heading={heading1} 
     headingLevel={headingLevel} 
   />;
 
 export const Subheading1 = () => 
-  <HeadingWithSubheading 
+  <IconHeading
+    icon={MainIcon}
     heading={heading1} 
     headingLevel={headingLevel} 
     subheading1={subheading1} 
@@ -39,7 +43,8 @@ export const Subheading1 = () =>
   />;
 
 export const Subheading2 = () => 
-  <HeadingWithSubheading 
+  <IconHeading
+    icon={MainIcon}
     heading={heading1} 
     headingLevel={headingLevel} 
     subheading2={subheading2} 
@@ -47,7 +52,8 @@ export const Subheading2 = () =>
   />;
 
 export const NoIcons = () => 
-  <HeadingWithSubheading 
+  <IconHeading
+    icon={MainIcon}
     heading={heading1} 
     headingLevel={headingLevel} 
     subheading1={subheading1} 

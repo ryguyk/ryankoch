@@ -1,7 +1,6 @@
 import { Laptop, MapPin } from "lucide-react";
 import React, { JSX } from "react";
-import IconHeading from "@/components/IconHeading";
-import Pills from "@/components/Pills";
+import PageSection from "@/components/PageSection";
 
 const experiences = [
   {
@@ -13,7 +12,7 @@ const experiences = [
         position: "Engineering Lead",
         period: "May 2024 - May 2025",
         techStack: ["React", "PHP", "Drupal 10", "GraphQL", "Ruby on Rails"],
-        description: "Engineered a dynamic form-building framework that abstracted complex logic behind a user-friendly interface, enabling non-technical stakeholders to publish forms independently.",
+        description: ["Engineered a dynamic form-building framework that abstracted complex logic behind a user-friendly interface, enabling non-technical stakeholders to publish forms independently."],
         achievements: [
           "Conceived, architected, and independently developed the prototype that secured the project contract, transforming an abstract need into a compelling product vision.",
           "Led the client pitch, effectively communicating the product vision and technical approach that convinced stakeholders to award the contract.",
@@ -28,7 +27,7 @@ const experiences = [
         position: "Senior Full-Stack Engineer",
         period: "April 2023 - May 2024",
         techStack: ["TypeScript", "React", "Next.js", "PHP", "Drupal 9", "GraphQL", "JSON:API"],
-        description: "Key contributor to a full-stack Next.js initiative that accelerated static-page build times for a site comprising tens of thousands of pages.",
+        description: ["Key contributor to a full-stack Next.js initiative that accelerated static-page build times for a site comprising tens of thousands of pages."],
         achievements: [
           "Owned complex feature development in Next.js, leveraging its inherently full-stack architecture to deliver seamless integration and robust client-server functionality.",
           "Tackled the most challenging business logic and technical problems, serving as the team’s key resource for difficult implementations.",
@@ -40,7 +39,7 @@ const experiences = [
         position: "Senior Engineer/FE Tech Lead",
         period: "October 2021 - April 2023",
         techStack: ["React", "Node.js", "Liquid", "PHP", "Drupal 9", "SQL", "GraphQL"],
-        description: "Front-end engineering lead on a full-stack team responsible for the Department of Veterans Affairs' public-facing website, which serves millions of Veterans and their families.",
+        description: ["Front-end engineering lead on a full-stack team responsible for the Department of Veterans Affairs' public-facing website, which serves millions of Veterans and their families."],
         achievements: [
           "Led front-end engineering for a team of ~15, driving high-impact development efforts.",
           "Contributed across the full tech stack, with a leadership focus on front-end development.",
@@ -59,7 +58,7 @@ const experiences = [
         position: "Senior Full-Stack Engineer",
         period: "August 2013 - October 2021",
         techStack: ["React", "Next.js", "PHP", "Drupal 7", "SQL", "CSS-in-JS"],
-        description: "Developed and maintained three separate company websites for a leading digital publication, ensuring high availability, performance, and a seamless user experience across all platforms.",
+        description: ["Developed and maintained three separate company websites for a leading digital publication, ensuring high availability, performance, and a seamless user experience across all platforms."],
         achievements: [
           "Played a key role in migrating the company to a digital publication platform, significantly expanding AINonline.com’s reach as a leading aviation news site attracting thousands of additional monthly readers.",
           "Developed and maintained three company websites, all powered by Drupal CMS.",
@@ -81,7 +80,7 @@ const experiences = [
         position: "VBA Developer",
         period: "August 2010 - August 2013",
         techStack: ["VBA", ".NET"],
-        description: "Automated the aggregation of mutual-fund data from multiple sources and engineered a robust desktop application that enabled consumers to view and analyze the data.",
+        description: ["Automated the aggregation of mutual-fund data from multiple sources and engineered a robust desktop application that enabled consumers to view and analyze the data."],
       }
     ],
   },
@@ -93,7 +92,7 @@ const experiences = [
         position: "IT Development/Support",
         period: "August 2010 - August 2013",
         techStack: ["VBA", ".NET"],
-        description: "Sole developer responsible for delivering a custom, end-to-end attendance management system for an on-campus study program supporting intercollegiate athletes.",
+        description: ["Sole developer responsible for delivering a custom, end-to-end attendance management system for an on-campus study program supporting intercollegiate athletes."],
       }
     ],
   },
@@ -113,102 +112,12 @@ const experiences = [
         position: "IT Intern",
         period: "June 2005 - August 2005",
         techStack: ["Java"],
-        description: "Supported the development of web applications enabling customers to manage their insurance policies online."
-      }
+        description: ["Supported the development of web applications enabling customers to manage their insurance policies online."],
+      },
     ],
   }
 ];
-
-function ProjectItem({
-  headingLevel: Heading = "h3",
-  title,
-  position,
-  period,
-  techStack,
-  description = "",
-  achievements = [],
-}: {
-  headingLevel?: keyof JSX.IntrinsicElements;
-  title?: string;
-  position: string;
-  period: string;
-  techStack?: string[];
-  description?: string;
-  achievements?: string[];
-}) {
-  return (
-    <section className="mb-6">
-      <div className="mb-4">
-        { title && (
-          <div className="text-lg font-semibold text-foreground-bright">
-            <Heading>{title}</Heading>
-          </div>
-        )}
-        <div>
-          <span className="text-foreground-bright">{position}</span>
-          <span className="mx-2">|</span>
-          <span>{period}</span>
-        </div>
-      </div>
-      { techStack && (
-        <div className="mb-4">
-          <Pills labels={techStack} />
-        </div>
-      )}
-      <div>
-        <p className="text-sm mb-3 italic text-foreground-bright">{description}</p>
-        {achievements.length > 0 && (
-          <ul className="list-disc pl-5 space-y-1">
-            {achievements.map((achievement, index) => (
-              <li key={index} className="text-sm">{achievement}</li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </section>
-  );
-}
   
-function ExperienceItem({
-  company,
-  location,
-  projects,
-}: {
-  company: string;
-  location: string;
-  projects: {
-    title?: string;
-    position: string;
-    period: string;
-    techStack?: string[];
-    description?: string;
-    achievements?: string[];
-  }[];
-}) {
-  return (
-    <section className="border-b-1 last:border-b-0 text-foreground p-6 pb-10 mb-6">
-      <IconHeading
-        Icon={Laptop}
-        title={company}
-        headingLevel = "h2"
-        SubtitleIcon={MapPin}
-        subtitle={location}
-      />      
-      {projects.map((project, index) => (
-        <ProjectItem
-          key={index}
-          title={project.title}
-          position={project.position}
-          period={project.period}
-          techStack={project.techStack}
-          description={project.description}
-          achievements={project.achievements}
-        />
-      ))}
-    </section>
-  );
-}
-
 export default function ExperiencePage() {
   return (
     <div className="min-h-screen">
@@ -216,11 +125,22 @@ export default function ExperiencePage() {
         {/* Main Content */}
         <main className="p-6 pb-24">
           {experiences.map((experience, index) => (
-            <ExperienceItem
+            <PageSection
               key={index}
-              company={experience.company}
-              location={experience.location}
-              projects={experience.projects}
+              icon={Laptop}
+              heading={experience.company}
+              headingLevel="h2"
+              subheading1={experience.location}
+              subheading1Icon={MapPin}
+              pageSubsections={experience.projects.map(project => ({
+                label: project?.title,
+                headingLevel: "h3",
+                heading1: project.position,
+                heading2: project.period,
+                tags: project.techStack || [],
+                description: project.description,
+                bullets: project.achievements || [],
+              }))}
             />
           ))}
         </main>

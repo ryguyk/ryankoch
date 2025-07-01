@@ -1,56 +1,87 @@
-import Pills from "@/components/Pills";
+import Pills from "@/components/Pills/Pills";
 import { Medal, Trophy, MapPin, Calendar } from "lucide-react";
-import React from "react";
+import React, { ComponentType } from 'react';
 import IconHeading from "@/components/IconHeading";
+import PageSection from "@/components/PageSection";
+import { Subheading2 } from "@/components/HeadingWithSubheading/HeadingWithSubheading.stories";
+
+type AwardSubsectionProps = {
+  heading: string;
+  subheading?: string;
+  tags?: string[];
+  description?: string[];
+}
+
+type AwardProps = {
+  heading: string,
+  subheading?: string,
+  subheadingIcon?: ComponentType<{ className?: string }>;
+  subsections: AwardSubsectionProps[];
+}
+
+const awards: AwardProps[] = [
+  {
+    heading: '2016 Olympic Games',
+    subheading: 'Rio de Janeiro',
+    subheadingIcon: MapPin,
+    subsections: [
+      {
+        heading: 'Personal Coach',
+        tags: ['Track & Field'],
+        description: [
+          'Coached wife, Olympian Heather Miller-Koch, for six years leading up to and including qualification to the 2016 Olympic Games in Rio de Janeiro, Brazil. Oversaw all aspects of training design and execution.',
+          'This was a multi-year pursuit that demanded absolute precision, resilience, and emotional endurance, blending expert-level knowledge of physiology, biomechanics, and human performance with the relentless day-to-day grind of elite sport. The physical, mental, and relational demands were immense. It required an unwavering commitment that shaped nearly every aspect of our lives.',
+          'I consider this the greatest achievement of my life.',
+        ],
+      }
+    ]
+  },
+  {
+    heading: 'Intercollegiate Athletics',
+    subheading: 'St. Cloud State University',
+    subsections: [
+      {
+        heading: '5x First-Team Academic All-American',
+        tags: ['Track & Field (3)', 'Football (2)'],
+      },
+      {
+        heading: 'NCAA Division II National Student-Athlete of the Year',
+        tags: ['NCAA'],
+      },
+      {
+        heading: 'Athletic Hall of Fame',
+        tags: ['Inducted 2025'],
+      },
+    ],
+  },
+];
 
 export default function AwardsPage() {
   return (
     <div className="min-h-screen">
       <div className="mx-auto max-h-500 min-h-screen">
-        {/* Main Content */}
         <main className="p-6 pb-24">
-          {/* Olympic Games */}
-          <section className="border-b-1 last:border-b-0 text-foreground p-6 pb-12 mb-6">
-            <IconHeading Icon={Medal} title="2016 Olympic Games" SubtitleIcon={MapPin} subtitle="Rio de Janeiro"/>
-            <div className="space-y-3">
-              <div>
-                <p className="text-md mt-4 mb-2 font-medium text-foreground-bright">Personal Coach</p>
-                <div className="flex flex-wrap gap-2">
-                  <Pills labels={["Track & Field"]} />
-                </div>
-                <p className="mt-6 italic">
-                  Coached wife, Olympian Heather Miller-Koch, for six years leading up to and including qualification to the 2016 Olympic Games in Rio de Janeiro, Brazil. 
-                  Oversaw all aspects of training design and execution.
-                </p>
-                <p className="mt-6 italic">
-                  This was a multi-year pursuit that demanded absolute precision, resilience, and emotional endurance, blending expert-level knowledge of physiology, biomechanics, and human performance 
-                  with the relentless day-to-day grind of elite sport. The physical, mental, and relational demands were immense. It required an unwavering commitment that shaped nearly every aspect of our lives.
-                </p>
-                <p className="mt-6 italic font-bold">
-                  I consider this the greatest achievement of my life.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          {/* Intercollegiate Athletics */}
-          <div className="text-foreground p-6 mb-6">
-            <IconHeading Icon={Trophy} title="Intercollegiate Athletics" subtitle="St. Cloud State University"/>
-            <div className="space-y-3">
-              <div>
-                <p className="text-md mt-4 mb-2 font-medium text-foreground-bright">5x First-Team Academic All-American</p>
-                <div className="flex flex-wrap gap-2">
-                  <Pills labels={["Track & Field (3)", "Football (2)"]} />
-                </div>
-                 
-                <p className="text-md mt-4 mb-2 font-medium text-foreground-bright">NCAA Division II National Student-Athlete of the Year</p>
-                <Pills labels={["2006"]} />
-
-                <p className="text-md mt-4 mb-2 font-medium text-foreground-bright">Athletic Hall of Fame</p>
-                <Pills labels={["Inducted 2025"]} />
-              </div>
-            </div>
-          </div>
+          {awards.map(({
+            heading,
+            subheading,
+            subheadingIcon,
+            subsections,
+          }, index) => (
+            <PageSection
+              key={index}
+              icon={Medal}
+              heading={heading}
+              headingLevel="h2"
+              subheading2={subheading}
+              subheading2Icon={subheadingIcon}
+              pageSubsections={subsections.map(subsection => ({
+                heading1: subsection.heading,
+                subheading2: subsection.subheading,
+                tags: subsection.tags,
+                description: subsection.description,
+              }))}
+            />
+          ))}
         </main>
       </div>
     </div>

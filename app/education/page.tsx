@@ -1,7 +1,31 @@
-import Pills from "@/components/Pills";
-import { GraduationCap, Trophy, MapPin, Calendar } from "lucide-react";
+import Pills from "@/components/Pills/Pills";
+import { GraduationCap, MapPin, Calendar } from "lucide-react";
 import React from "react";
-import IconHeading from "@/components/IconHeading";
+import PageSection from "@/components/PageSection";
+import { PageSubsectionProps } from "@/components/PageSubsection";
+
+type EducationProps = {
+  institution: string;
+  location: string;
+  degree?: string;
+  period?: string;
+  degreeDate?: string;
+  gpa?: string;
+  majors?: string[];
+  minors?: string[];
+}
+
+const education: EducationProps[] = [
+  {
+    institution: "St. Cloud State University",
+    degree: "Bachelor of Science",
+    period: "September 2001 - May 2006",
+    majors: ["Computer Science"],
+    minors: ["Mathematics", "Spanish"],
+    location: "St. Cloud, MN",
+    gpa: "4.0"
+  }
+];
 
 export default function EducationPage() {
   return (
@@ -9,35 +33,66 @@ export default function EducationPage() {
       <div className="mx-auto max-h-500 min-h-screen">
         {/* Main Content */}
         <main className="p-6 pb-24">
-          {/* University Section */}
-          <div className="text-foreground p-6 pb-10 mb-6">
-            <IconHeading Icon={GraduationCap} title="St. Cloud State University" SubtitleIcon={MapPin} subtitle="St. Cloud, MN" />
-            <div className="space-y-3">
-              <div>
-                <h3 className="text-base font-semibold text-foreground-bright">Bachelor of Science</h3>
-                <div className="flex items-center text-sm mt-1">
-                  <Calendar className="h-4 w-4 mr-1" />
-                  <span>May 2006</span>
-                </div>
-              </div>
+            {education.map(({
+              institution,
+              location,
+              degree,
+              period,
+              degreeDate,
+              gpa,
+              majors,
+              minors,
+            }, index) => {
+            let subsections = [];
 
-              <div>
-                <p className="text-sm font-medium mt-4 mb-2 text-foreground-bright">Major</p>
-                <Pills labels={["Computer Science"]} />
-              </div>
+            if (degree) {
+              const degreeSubsection: PageSubsectionProps = {
+                headingLevel: 'h3',
+                heading1: degreeDate ? degree : 'Degree',
+                tags: degreeDate ? [degreeDate] : [degree],
+              };
+              subsections.push(degreeSubsection);
+            }
+            
+            if (majors) {
+              const majorSubsection: PageSubsectionProps = {
+                headingLevel: 'h3',
+                heading1: majors.length > 1 ? 'Majors' : 'Major',
+                tags: majors,
+              };
+              subsections.push(majorSubsection);
+            }
 
-              <div>
-                <p className="text-sm font-medium mb-2 text-foreground-bright">Minors</p>
-                <div className="flex flex-wrap gap-2">
-                  <Pills labels={["Mathematics", "Spanish"]} variant="secondary" />
-                </div>
-              </div>
+            if (minors) {
+              const minorSubsection: PageSubsectionProps = {
+                headingLevel: 'h3',
+                heading1: minors.length > 1 ? 'Minors' : 'Minor',
+                tags: minors,
+              };
+              subsections.push(minorSubsection);
+            }
+            
+            if (gpa) {
+              const gpaSubsection: PageSubsectionProps = {
+                headingLevel: 'h3',
+                heading1: 'GPA',
+                tags: [gpa],
+              };
+              subsections.push(gpaSubsection);
+            }
 
-              <div className="pt-2 mt-8 text-foreground-bright">
-                <span className="text-lg font-medium">GPA: 4.0</span>
-              </div>
-            </div>
-          </div>
+            return (
+              <PageSection
+                key={index}
+                headingLevel="h2"
+                icon={GraduationCap}
+                heading={institution}
+                subheading1={location}
+                subheading1Icon={MapPin}
+                pageSubsections={subsections}
+              />
+            );
+          })}
         </main>
       </div>
     </div>
