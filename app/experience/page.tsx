@@ -2,7 +2,20 @@ import { Laptop, MapPin } from "lucide-react";
 import React, { JSX } from "react";
 import PageSection from "@/components/PageSection";
 
-const experiences = [
+type ExperienceProps = {
+  company: string;
+  location: string;
+  projects: {
+    title?: string;
+    position: string;
+    period?: string;
+    techStack?: string[];
+    description?: string[];
+    achievements?: string[];
+  }[];
+};
+
+const experiences: ExperienceProps[] = [
   {
     company: "Agile Six",
     location: "Remote",
@@ -133,7 +146,7 @@ export default function ExperiencePage() {
               subheading1={experience.location}
               subheading1Icon={MapPin}
               pageSubsections={experience.projects.map(project => ({
-                label: project?.title,
+                label: project.title,
                 headingLevel: "h3",
                 heading1: project.position,
                 heading2: project.period,
